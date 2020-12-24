@@ -27,8 +27,10 @@ function getAndValidateArgs(): IssueProcessorOptions {
       core.getInput('days-before-close', {required: true})
     ),
     staleIssueLabel: core.getInput('stale-issue-label', {required: true}),
+    closeIssueLabel: core.getInput('close-issue-label'),
     exemptIssueLabels: core.getInput('exempt-issue-labels'),
     stalePrLabel: core.getInput('stale-pr-label', {required: true}),
+    closePrLabel: core.getInput('close-pr-label'),
     exemptPrLabels: core.getInput('exempt-pr-labels'),
     onlyLabels: core.getInput('only-labels'),
     operationsPerRun: parseInt(
@@ -38,7 +40,9 @@ function getAndValidateArgs(): IssueProcessorOptions {
       core.getInput('remove-stale-when-updated') === 'false'
     ),
     debugOnly: core.getInput('debug-only') === 'true',
-    ascending: core.getInput('ascending') === 'true'
+    ascending: core.getInput('ascending') === 'true',
+    skipStalePrMessage: core.getInput('skip-stale-pr-message') === 'true',
+    skipStaleIssueMessage: core.getInput('skip-stale-issue-message') === 'true'
   };
 
   for (const numberInput of [

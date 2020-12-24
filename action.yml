@@ -22,12 +22,16 @@ inputs:
   stale-issue-label:
     description: 'The label to apply when an issue is stale.'
     default: 'Stale'
+  close-issue-label:
+    description: 'The label to apply when an issue is closed.'
   exempt-issue-labels:
     description: 'The labels to apply when an issue is exempt from being marked stale. Separate multiple labels with commas (eg. "label1,label2")'
     default: ''
   stale-pr-label:
     description: 'The label to apply when a pull request is stale.'
     default: 'Stale'
+  close-pr-label:
+    description: 'The label to apply when a pull request is closed.'
   exempt-pr-labels:
     description: 'The labels to apply when a pull request is exempt from being marked stale. Separate multiple labels with commas (eg. "label1,label2")'
     default: ''
@@ -45,6 +49,12 @@ inputs:
     default: false
   ascending:
     description: 'The order to get issues or pull requests. Defaults to false, which is descending'
+    default: false
+  skip-stale-pr-message:
+    description: 'Skip adding stale message when marking a pull request as stale.'
+    default: false
+  skip-stale-issue-message:
+    description: 'Skip adding stale message when marking an issue as stale.'
     default: false
 runs:
   using: 'node12'
